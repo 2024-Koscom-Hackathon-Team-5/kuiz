@@ -1,0 +1,29 @@
+.btn_keyword {
+    box-sizing: border-box;
+    position:relative;
+    width: auto;
+    height: 40px;
+
+    display:inline-block;
+
+    background: #FFF0DE;
+    border: 1px solid #CECECE;
+    border-radius: 18px;
+
+    color: #000000;
+    font-family: "Arita-dotum-Light";
+    font-weight: 400;
+    font-size: 18px; 
+
+    text-align: center;
+    vertical-align: middle;
+
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn_keyword:hover {
+    background: #ffce91;
+}

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #F4F1ED;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +11,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: "SOGANGUNIVERSITYTTF";
+  font-weight: normal;
+  src: url("./fonts/SOGANG_UNIVERSITY_for_windows.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Arita-dotum-Light";
+  font-weight: normal;
+  src: url("./fonts/아리따-돋움(TTF)-Light.ttf") format("truetype");
+}
+
+* {
+  font-family: "SOGANGUNIVERSITYTTF";
+ /* font-family: Arita-dotum-Light; */
 }
