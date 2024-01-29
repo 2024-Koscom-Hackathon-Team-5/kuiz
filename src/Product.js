@@ -102,7 +102,7 @@ export default function Product() {
 	return (
             <div className='wrapper_app'>
                 <div className='app'>
-                    
+
                     <>
                         <div className='question-section'>
                             {/* <div className='question-count'>
