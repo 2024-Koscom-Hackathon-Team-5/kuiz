@@ -1,0 +1,22 @@
+#startBtn {
+    width: 200px;
+    height:fit-content;
+
+    font-family: Arita-dotum-Light; 
+    font-size: 20px;
+    text-align: center;
+    color: #000000;
+
+    background-color: #FFFFFF;
+    border-radius:0px;
+    border: solid 1px #523E2A;
+
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    margin-top: 600px;
+    margin-left: 700px;
+}

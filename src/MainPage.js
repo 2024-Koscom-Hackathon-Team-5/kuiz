@@ -4,17 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 //components
 import './Home.css';
+import Inform from './Components/Inform';
 
-const Home = () => {
+const MainPage = () => {
   const navigate = useNavigate();
 
   const [srcStr, setSrcStr] = useState("/kuiz_start_dark_blur.mov");
   const [searchText, setSearchText] = useState("");
-
-  const letsStart = () => {
-    navigate("/mainpage");
-  };
-
 
   const searchFunction = (value) => {
     navigate("/quizpage");
@@ -61,27 +57,71 @@ const Home = () => {
 
     return (
         <WrapView>
+            <div className='wrapper_app'>
+                <div className='app'>
+                        
+                    <div className="container">
+                    <Inform text={"퀴즈 더 풀어보기"} />
+                    <div className="row">
+                        <div className="col">
+                            <div className="row row-cols-1">
+                            <div className="col">
+                                <div className="card">
+                                    <img src="img/search/search01.png" className="card-img-top" alt="firstcard"></img>
+                                    <div className="card-body">
+                                        <p className="card-text">20대가 많이 틀리는 금융 퀴즈</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div className="col">
+                            <div className="row row-cols-1">
+                            <div className="col">
+                                <div className="card">
+                                    <img src="img/search/search03.png" className="card-img-top" alt="firstcard"></img>
+                                    <div className="card-body">
+                                        <p className="card-text">자산 규모 5,000만원 이상인<br/>사람이 가장 궁금해 하는 상품</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                </div>
+            </div>
+
+            <Inform text={"홍길동 님의 마이데이터를 기반으로 분석한 추천 퀴즈입니다."} />
             
-            <RAvideo id="videoplay" key={srcStr} muted autoPlay loop>
-                <source src={srcStr} type="video/mp4"></source>
-            </RAvideo>
-
-            <TopView>
-                <TopText>WELCOME TO</TopText>
-            </TopView>
-
-            <DText>
-                <PText><span style={{ color: "#F36F32" }}>K</span>uiz</PText>
-            </DText>
-            <DSubText>
-                <SubText>금융 이슈를 쉽고 재미있게</SubText>
-            </DSubText>
-
-            <button id='startBtn' onClick={() => letsStart()}>시작하기</button>
         </WrapView>
     );
 };
 
+/*
+
+
+            <BottomView>
+              <FormSearchBox onSubmit={searchFunction}>
+                  <Forminput value={searchText} onChange={changeEventForInput}
+                  ></Forminput>
+                  <BtnSearch onClick={searchFunction}></BtnSearch>  
+              </FormSearchBox>
+            </BottomView>
+
+
+            <LastView>
+              <Tags className="flex-container">
+                <Keyword text="ELS" updateTags={updateTags} />
+                <Keyword text="전세사기" updateTags={updateTags} />
+                <Keyword text="루나코인" updateTags={updateTags} />
+                <Keyword text="적금" updateTags={updateTags} />
+                <Keyword text="펀드" updateTags={updateTags} />
+                <Keyword text="ETF" updateTags={updateTags} />
+                <Keyword text="비트코인" updateTags={updateTags} />
+              </Tags>
+            </LastView>
+*/
 const Tags = styled.div`
   text-align: center;
 `
@@ -234,4 +274,4 @@ const WrapView = styled.div`
 `
 
 
-export default Home;
+export default MainPage;

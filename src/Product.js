@@ -100,8 +100,8 @@ export default function Product() {
 		}
 	};
 	return (
-            <div className='wrapper_app'>
-                <div className='app'>
+            <div className='wrapper_app_product'>
+                <div className='app_product'>
                     
                     <>
                         <div className='question-section'>
