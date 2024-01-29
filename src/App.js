@@ -8,8 +8,8 @@ import Product from './Product';
 import QuizPage from './QuizPage';
 import React from "react";
 
-// const apiUrl = "http://221.168.36.167:8080/";
-const apiUrl = "http://localhost:8080/";
+ const apiUrl = "http://221.168.36.167:8080/";
+//const apiUrl = "http://localhost:8080/";
 
 function App() {
   return (
