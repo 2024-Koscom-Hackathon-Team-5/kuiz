@@ -3,10 +3,9 @@ import './QuizPage.css'
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 import { setCookie, getCookie } from './Etc/Cookies';
+import axios from "axios";
 
-
-
-export default function QuizPage({sname}) {
+export default function QuizPage({apiUrl}) {
 	const quiz_list = [
         {
             "id": 1,
@@ -93,12 +92,33 @@ export default function QuizPage({sname}) {
     const [showAnswer, setShowAnser] = useState(false);
     const [clickedAnswer, setClickedAnswer] = useState(0);
 
-    const [searchName, setSearchName] = useState('');
+    const [searchName, setSearchName] = useState('ETF');
 
     useEffect(() => {
         const name = getCookie('search_name');
         setSearchName(name);
         console.log(searchName);
+
+        //Access-Control-Allow-Origin: *
+        axios.get(`${apiUrl}api/kuiz/`,
+                    {params: {keyword: searchName}})
+                .then(function (response) {
+                // response  
+
+                if(response.data.count > 0 ) {
+                    //renderFunction
+                    console.log('response: '+response);
+                    //setLists(response.data)
+                }
+                else {
+                    //검색 결과가 없습니다.
+                    alert("검색 결과가 없습니다 !!");
+                }
+                }).catch(function (error) {
+                // 오류발생시 실행
+                }).then(function() {
+                // 항상 실행
+                });
     },[]);
 
 	const handleAnswerOptionClick = (isCorrect, num) => {

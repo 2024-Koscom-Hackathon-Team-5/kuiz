@@ -26,6 +26,10 @@ const WrapperInform = styled.p`
 
     width: 100%;
     height: 130px;
+
+    &:hover {
+        background: #EDEDED; /* 마우스를 올렸을 때의 텍스트 색상 */
+      }
 `
   
 const InformTxt = styled.h3`

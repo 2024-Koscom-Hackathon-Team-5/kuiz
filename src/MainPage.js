@@ -91,7 +91,7 @@ const MainPage = () => {
         </div>
     );
 };
-
+//<button className="card-img-top" alt="firstcard"></button>
 
 const Tags = styled.div`
   text-align: center;
