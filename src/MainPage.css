@@ -1,11 +1,13 @@
+.bigWrapper {
+    
+}
+
 .app_main {
-    background-color: #F4F1ED;
-    width: 600px;
+    width: 100%;
     height: min-content;
     border-radius: 0px;
 
-    margin-left: 350px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 
     justify-content: center;
     align-items: center; 
@@ -16,7 +18,7 @@
 }
 
 .topname {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 30%;
     margin-bottom: 10px;
 }
@@ -24,6 +26,9 @@
 .container {
     width: 100%;
     display: flex;
+
+    justify-content: center;
+    align-items: center; 
 }
 
 .chidden {
@@ -47,6 +52,8 @@
 
     font-size: 23px;
     text-align: center;
+
+    line-height: 30px;
 }
 
 .card-img-top {
@@ -55,21 +62,42 @@
     height: 230px;
 }
 
+
+.card-img-top:hover {
+    border-radius: 20px;
+    width: 400px;
+    height: 230px;
+}
+
 /* ------------------------------------------- */
+.wrapper_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* 세로정렬*/
+    justify-content: center;
+    align-items: center; 
+}
 
 .container_list {
+    margin-top: 20px;
+    margin-left: 20px;
 
-    width: 500px; /* 적절한 너비로 조정 */
+    width: 650px; /* 적절한 너비로 조정 */
     padding: 20px;
     border: 1px solid #ccc; /* 테두리 스타일 설정 */
+    background-color: #FFF;
+
+
+    border-radius: 20px;
 }
 
 .title_list {
-    position: absolute;
+    font-family: "Arita-dotum-Light";
+    font-size: 30px;
+
     top: 0;
     right: 0;
-    background-color: #f0f0f0; /* 배경색 설정 */
-    padding: 5px 10px; /* 내부 여백 설정 */
+    padding: 5px; /* 내부 여백 설정 */
 }
 
 .buttons_list {
@@ -79,14 +107,22 @@
 .product-button_list, .quiz-button_list {
     display: block;
     width: 100%;
+    height: 50px;
+
     padding: 10px 0;
     margin-bottom: 10px;
-    border: 1px solid #333; /* 버튼 테두리 스타일 설정 */
-    background-color: #007bff; /* 배경색 설정 */
-    color: #fff; /* 글자색 설정 */
+    border: 2px solid #ccc; /* 버튼 테두리 스타일 설정 */
+    border-radius: 0px;
+
+    background-color: #FFF0DE; /* 배경색 설정 */
+    color: #000; /* 글자색 설정 */
+
+    font-family: "Arita-dotum-Light";
+    font-size: 25px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+
 }
 
 .quiz-button_list {

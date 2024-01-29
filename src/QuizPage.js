@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './QuizPage.css'
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
+import { setCookie, getCookie } from './Etc/Cookies';
 
-export default function QuizPage() {
+
+
+export default function QuizPage({sname}) {
 	const quiz_list = [
         {
             "id": 1,
@@ -89,6 +92,14 @@ export default function QuizPage() {
 
     const [showAnswer, setShowAnser] = useState(false);
     const [clickedAnswer, setClickedAnswer] = useState(0);
+
+    const [searchName, setSearchName] = useState('');
+
+    useEffect(() => {
+        const name = getCookie('search_name');
+        setSearchName(name);
+        console.log(searchName);
+    },[]);
 
 	const handleAnswerOptionClick = (isCorrect, num) => {
         setClickedAnswer(num);

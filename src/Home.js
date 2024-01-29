@@ -76,8 +76,9 @@ const Home = () => {
             <DSubText>
                 <SubText>금융 이슈를 쉽고 재미있게</SubText>
             </DSubText>
-
-            <button id='startBtn' onClick={() => letsStart()}>시작하기</button>
+            <div class='wrappeere_start_btn'>
+              <button id='startBtn' onClick={() => letsStart()}>시작하기</button>
+            </div>
         </WrapView>
     );
 };
