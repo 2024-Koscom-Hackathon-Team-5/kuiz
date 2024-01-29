@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './QuizPage.css'
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
 
 export default function QuizPage() {
 	const quiz_list = [
@@ -94,7 +95,10 @@ export default function QuizPage() {
         setShowAnser(true);
         setScore(score + 1);
 	};
-
+    const navigate = useNavigate();
+    const letsStart = () => {
+        navigate("/product");
+      };
     const madeViewOfNext = () => {
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < quiz_list.length) {
@@ -147,7 +151,7 @@ export default function QuizPage() {
                                 <button class="block-element"><img src="/imgs/kakao.png" className='sns_image' /></button>
                             </div>
                             <br></br>
-                            <button id='ADBtn' onClick={() => madeViewOfNext()}>{'확실한 원금 보장 상품을 원한다면? >'}</button>
+                            <button id='ADBtn' onClick={() => letsStart()}>{'확실한 원금 보장 상품을 원한다면? >'}</button>
                         </>
                     ) : (
                         <img src="/imgs/img4.png" className='right_img'/>
