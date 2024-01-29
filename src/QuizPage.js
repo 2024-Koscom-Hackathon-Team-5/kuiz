@@ -140,7 +140,14 @@ export default function QuizPage() {
                                 <p id='quiz_commentary'>{quiz_list[currentQuestion].commentary}</p>
                                 <button id='NextBtn' onClick={() => madeViewOfNext()}>{'다음 문제 풀기 >'}</button>                                                                                      
                             </div>
-                            <p id='sns_text'>잠깐! 몰랐던 사실, 친구도 알려주기</p>
+                            <div class="block-container">
+                                <div class="block-element0">잠깐! 몰랐던 사실, 친구도 알려주기</div>
+                                <button class="block-element"><img src="/imgs/face.png" className='sns_image' /></button>
+                                <button class="block-element"><img src="/imgs/insta.jpg" className='sns_image' /></button>
+                                <button class="block-element"><img src="/imgs/kakao.png" className='sns_image' /></button>
+                            </div>
+                            <br></br>
+                            <button id='ADBtn' onClick={() => madeViewOfNext()}>{'확실한 원금 보장 상품을 원한다면? >'}</button>
                         </>
                     ) : (
                         <img src="/imgs/img4.png" className='right_img'/>
