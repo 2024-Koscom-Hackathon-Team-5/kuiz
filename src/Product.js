@@ -105,44 +105,73 @@ export default function Product() {
                     
                     <>
                         <div className='question-section'>
-                            <div className='question-count'>
+                            {/* <div className='question-count'>
                                 <span>Question {currentQuestion + 1}</span>/{quiz_list.length}
-                            </div>
-                            <b>문구 작성</b>
-                            <div className='question-text'>{quiz_list[currentQuestion].quiz_name}</div>
+                            </div> */}
+                            <span>적금 관련 상품</span>
+                            {/* <div className='question-text'>{quiz_list[currentQuestion].quiz_name}</div> */}
                         </div>
-                        <b>here</b>
+                        <br></br>
+                        <br></br>
+                        
                         <div className='prouct-section'>
                             <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                             <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                             <button id='product'>
-                                <b>상품 이름</b>
-                            </button>
-                        </div>
-                        <div className='prouct-section'>
-                            <button id='product'>
-                                <b>상품 이름</b>
-                            </button>
-                            <button id='product'>
-                                <b>상품 이름</b>
-                            </button>
-                            <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                         </div>
                         <div className='prouct-section'>
                             <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                             <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                             <button id='product'>
-                                <b>상품 이름</b>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
+                            </button>
+                        </div>
+                        <div className='prouct-section'>
+                            <button id='product'>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
+                            </button>
+                            <button id='product'>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
+                            </button>
+                            <button id='product'>
+                                <b>KB국민행복적금</b>
+                                <br></br>
+                                <br></br>
+                                가입: KB국민은행
                             </button>
                         </div>
                         
