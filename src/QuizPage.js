@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './QuizPage.css'
+import styled from 'styled-components';
 
 export default function QuizPage() {
 	const quiz_list = [
@@ -86,19 +87,27 @@ export default function QuizPage() {
 	const [score, setScore] = useState(0);
 
     const [showAnswer, setShowAnser] = useState(false);
+    const [clickedAnswer, setClickedAnswer] = useState(0);
 
-	const handleAnswerOptionClick = (isCorrect) => {
-		if (isCorrect) {
-			setScore(score + 1);
-		}
+	const handleAnswerOptionClick = (isCorrect, num) => {
+        setClickedAnswer(num);
+        setShowAnser(true);
+        setScore(score + 1);
+	};
 
+    const madeViewOfNext = () => {
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < quiz_list.length) {
 			setCurrentQuestion(nextQuestion);
+
+            //reset
+            setClickedAnswer(0);
+            setShowAnser(false);
 		} else {
 			setShowScore(true);
 		}
-	};
+    };
+
 	return (
             <div className='wrapper_app'>
                 <div className='app'>
@@ -110,13 +119,13 @@ export default function QuizPage() {
                         <>
                             <div className='question-section'>
                                 <div className='question-count'>
-                                    <span>Question {currentQuestion + 1}</span>/{quiz_list.length}
+                                    <span>문제 {currentQuestion + 1}.</span>
                                 </div>
                                 <div className='question-text'>{quiz_list[currentQuestion].quiz_name}</div>
                             </div>
                             <div className='answer-section'>
                                 {quiz_list[currentQuestion].choices.map((choices) => (
-                                    <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer)}>{choices.choice_num + ' ' + choices.choice}</button>
+                                    <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>
                                 ))}
                             </div>
                             
@@ -124,10 +133,30 @@ export default function QuizPage() {
                         
                     )}
                 </div>
-                <div className='app_right'>
-                    <img scr="./imgs/img1.jpg"></img>
+                <div className='wrapper_right'>
+                    {showAnswer ? (
+                        <>
+                            <div className='app_right'>
+                                <p id='quiz_commentary'>{quiz_list[currentQuestion].commentary}</p>
+                                <button id='NextBtn' onClick={() => madeViewOfNext()}>{'다음 문제 풀기 >'}</button>                                                                                      
+                            </div>
+                            <p id='sns_text'>잠깐! 몰랐던 사실, 친구도 알려주기</p>
+                        </>
+                    ) : (
+                        <img src="/imgs/img4.png" className='right_img'/>
+                    )}
                 </div>
         </div>
 
 	);
 }
+
+const BtnSearch = styled.button`
+  background: url( "imgs/search.png" ) no-repeat;
+  border: none;
+  width: 25px;
+  height: 25px;
+
+  position: absolute;
+  right:26%;
+`

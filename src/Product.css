@@ -1,8 +1,8 @@
-.wrapper_app {
+.wrapper_app_product {
     display: flex;
  }
  
- .app {
+ .app_product {
      background-color: #F4F1ED;
      width: 100%;
      min-height: 400px;
@@ -20,23 +20,6 @@
      align-items: center;  
    }
  
- 
- .app_right {
-     background-color: #F4F1ED;
-     width: 400px;
-     min-height: 200px;
-     height: min-content;
-     border-radius: 0px;
-     padding: 50px;
-     border: solid 1px #000000;
- 
-     margin-top: 120px;
-     margin-left: 50px;
- 
-     justify-content: center;
-     align-items: center;  
-   }
-   
    
    .score-section {
      display: flex;

@@ -4,6 +4,8 @@ import "./App.css";
 import Home from "./Home";
 import QuizPage from './QuizPage';
 import Product from './Product';
+import MainPage from './MainPage';
+import SearchList from './SearchList';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/quizpage" element={<QuizPage />}></Route> 
           <Route path="/product" element={<Product />}></Route>
+          <Route path="/mainpage" element={<MainPage />}></Route>
+          <Route path="/searchlist" element={<SearchList />}></Route>
         </Routes>
       </Router>
     </>
