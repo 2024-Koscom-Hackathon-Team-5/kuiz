@@ -82,16 +82,7 @@ const Home = () => {
     );
 };
 
-const Tags = styled.div`
-  text-align: center;
-`
 
-const LastView = styled.p`
-  position: absolute;
-  top: 77%;
-  width : 100%;
-  heigth : 20%;
-`
 //--------------------------------------------
 
 const BottomView = styled.p`
