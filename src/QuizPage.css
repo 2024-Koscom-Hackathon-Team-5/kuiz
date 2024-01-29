@@ -10,7 +10,7 @@
     /* padding: 70px; */
     border: solid 1px #000000;
 
-    margin-left: 130px;
+    margin-left: 160px;
     margin-top: 120px;
     margin-right: 50px;
 
@@ -62,7 +62,7 @@
   
   .right_img {
     width:400px;
-    height:550px;
+    height:630px;
     
     margin-top: 120px;
     object-fit: cover;
@@ -70,8 +70,15 @@
   
   .score-section {
     display: flex;
-    font-size: 24px;
+    font-family: Arita-dotum-Light;
+    font-size: 40px;
     align-items: center;
+    line-height: 50px;
+  }
+  .real_score {
+    float:right;
+    font-size: 200px;
+    color: #523E2A;
   }
   
   /* QUESTION/TIMER/LEFT SECTION */
@@ -147,19 +154,21 @@
   }
 
   #ADBtn {
-    width: 400px;
+    width: max-content;
     height:80px;
 
     font-family: Arita-dotum-Light; 
-    font-size: 18px;
-    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFF;
 
-    background-color: #FFFFFF;
+    background-color: #F36F32;
     border-radius:0px;
     border: solid 1px #523E2A;
 
     display: flex;
-    padding: 15px;
+    padding-left: 80px;
+    padding-right: 80px;
     /* justify-content: flex-right; */
     align-items: center;
     cursor: pointer;

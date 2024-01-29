@@ -144,6 +144,9 @@ export default function QuizPage({ apiUrl }) {
         "modifiedDate": null
     }]);
 
+    const [nextText, setNextText] = useState('다음 문제 풀기 >');
+    const [nextBtnShow, setNextBtnShow] = useState(true);
+
     useEffect(() => {
         const name = getCookie('search_name');
         setSearchName(name);
@@ -185,13 +188,24 @@ export default function QuizPage({ apiUrl }) {
     };
     const madeViewOfNext = () => {
         const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < quizlist.length) {
-            setCurrentQuestion(nextQuestion);
+        console.log('nextQuestion'+nextQuestion);
+        console.log('quizlist.length'+quizlist.length);
 
+        if(nextQuestion == quizlist.length-1)  {
+            setCurrentQuestion(nextQuestion);
+            setNextText('결과 확인하기');
             //reset
             setClickedAnswer(0);
             setShowAnser(false);
-        } else {
+        }
+        else if (nextQuestion < quizlist.length) {
+            setCurrentQuestion(nextQuestion);
+            setNextText('다음 문제 풀기 >');
+            //reset
+            setClickedAnswer(0);
+            setShowAnser(false);
+        }
+        else {
             setShowScore(true);
         }
     };
@@ -200,9 +214,12 @@ export default function QuizPage({ apiUrl }) {
         <div className='wrapper_app'>
             <div className='app'>
                 {showScore ? (
-                    <div className='score-section'>
-                        You scored {score} out of {quizlist.length}
-                    </div>
+                    <>
+                        <div className='score-section'>
+                            ELS 3단계 <br></br>퀴즈 결과는
+                        </div>
+                        <p className='real_score'>{100-score*10}점</p>
+                    </>
                 ) : (
                     <>
                         <div className='question-section'>
@@ -226,7 +243,7 @@ export default function QuizPage({ apiUrl }) {
                     <>
                         <div className='app_right'>
                             <div id='quiz_commentary'>{quizlist[currentQuestion].commentary}</div>
-                            <button id='NextBtn' onClick={() => madeViewOfNext()}>{'다음 문제 풀기 >'}</button>
+                            {showScore?<></>:(<button id='NextBtn' onClick={() => madeViewOfNext()}>{nextText}</button>)}
                         </div>
                         <div class="block-container">
                             <div class="block-element0">잠깐! 몰랐던 사실, 친구도 알려주기</div>
@@ -235,7 +252,7 @@ export default function QuizPage({ apiUrl }) {
                             <button class="block-element"><img src="/imgs/kakao.png" className='sns_image' /></button>
                         </div>
                         <br></br>
-                        <button id='ADBtn' onClick={() => letsStart()}>{keyword.recommend_phrase}</button>
+                        <button id='ADBtn' onClick={() => letsStart()}>{keyword[0].recommend_phrase}</button>
                     </>
                 ) : (
                     <img src="/imgs/img4.png" className='right_img' />
