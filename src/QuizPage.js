@@ -8,18 +8,18 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
 export default function QuizPage({ apiUrl }) {
-        const keyword = [ {
-            "keywordId": 1,
-            "keyword_name": "ELS",
-            "kor_name": "ELS",
-            "relavant_product": "원금 보장 상품",
-            "recommend_phrase": "확.실.한 원금보장상품을 원한다면?",
-            "quiz_cnt": 3,
-            "product_cnt": 9,
-            "createdDate": null,
-            "modifiedDate": null
-            }
-        ];
+    const keyword = [ {
+        "keywordId": 1,
+        "keyword_name": "ELS",
+        "kor_name": "ELS",
+        "relavant_product": "원금 보장 상품",
+        "recommend_phrase": "확.실.한 원금보장상품을 원한다면?",
+        "quiz_cnt": 3,
+        "product_cnt": 9,
+        "createdDate": null,
+        "modifiedDate": null
+        }
+    ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -31,7 +31,7 @@ export default function QuizPage({ apiUrl }) {
     const [searchName, setSearchName] = useState('ELS');
     const [quizlist, setQuizList] = useState([{
         "id": 1,
-        "quiz_name": "하드코딩 데이터 ELS의 손실 발생 조건은 무엇인가?",
+        "quiz_name": "ELS의 손실 발생 조건은 무엇인가??",
         "choice_num": 3,
         "answer": "b)",
         "commentary": "ELS는 만기 시점에 기초 자산 가격이 가입 당시 대비 일정 비율 이하로 하락할 경우에 손실이 발생하는 구조를 갖고 있습니다.",
@@ -235,7 +235,7 @@ export default function QuizPage({ apiUrl }) {
                             <button class="block-element"><img src="/imgs/kakao.png" className='sns_image' /></button>
                         </div>
                         <br></br>
-                        <button id='ADBtn' onClick={() => letsStart()}>{keyword.commentary}</button>
+                        <button id='ADBtn' onClick={() => letsStart()}>{keyword.recommend_phrase}</button>
                     </>
                 ) : (
                     <img src="/imgs/img4.png" className='right_img' />
