@@ -240,3 +240,10 @@
 }
 
 
+#answers.correct {
+  border: 2px solid #2f922f; /* Green border for correct answer */
+}
+
+#answers.incorrect {
+  border: 2px solid #ff3333; /* Red border for incorrect answer */
+}

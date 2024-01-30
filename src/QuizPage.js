@@ -177,10 +177,16 @@ export default function QuizPage({ apiUrl }) {
             });
     }, []);
 
-    const handleAnswerOptionClick = (isCorrect, num) => {
+    const handleAnswerOptionClick = (isCorrect, num, id) => {
         setClickedAnswer(num);
         setShowAnser(true);
-        setScore(score + 1);
+        // setScore(score + 1);
+        if (isCorrect) {
+            setScore(score + 1);
+            document.getElementById('answers').classList.add('correct');
+          } else {
+            document.getElementById('answers').classList.add('incorrect');
+          }
     };
     const navigate = useNavigate();
     const letsStart = () => {
@@ -197,6 +203,7 @@ export default function QuizPage({ apiUrl }) {
             //reset
             setClickedAnswer(0);
             setShowAnser(false);
+            document.getElementById('answers').classList.remove('correct', 'incorrect');
         }
         else if (nextQuestion < quizlist.length) {
             setCurrentQuestion(nextQuestion);
@@ -204,6 +211,7 @@ export default function QuizPage({ apiUrl }) {
             //reset
             setClickedAnswer(0);
             setShowAnser(false);
+            document.getElementById('answers').classList.remove('correct', 'incorrect');
         }
         else {
             setShowScore(true);
@@ -230,7 +238,11 @@ export default function QuizPage({ apiUrl }) {
                         </div>
                         <div className='answer-section'>
                             {quizlist[currentQuestion].choices.map((choices) => (
-                                <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>
+                                <>
+                                 {choices.isAnswer? 
+                                 <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>:
+                                 <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>}
+                                </>
                             ))}
                         </div>
 
