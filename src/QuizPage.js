@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 
 export default function QuizPage({ apiUrl }) {
+    
     const keyword = [ {
         "keywordId": 1,
         "keyword_name": "ELS",
@@ -195,6 +196,10 @@ export default function QuizPage({ apiUrl }) {
     const letsStart = () => {
         navigate("/product");
     };
+
+    const goHome = () => {
+        navigate("/mainpage");
+    }
     const madeViewOfNext = () => {
         const nextQuestion = currentQuestion + 1;
         console.log('nextQuestion'+nextQuestion);
@@ -224,6 +229,8 @@ export default function QuizPage({ apiUrl }) {
     return (
         <div className='wrapper_app'>
             <div className='app'>
+                <HomeBtn onClick={() => goHome()}></HomeBtn>
+
                 {showScore ? (
                     <>
                         <div className='score-section'>
@@ -296,4 +303,18 @@ const BtnSearch = styled.button`
 
   position: absolute;
   right:26%;
+`
+
+
+const HomeBtn = styled.button` 
+    background: url( "imgs/home.png" ) no-repeat;
+    object-fit: cover;
+
+    width: 70px;
+    height: 70px;
+    border: 0px;
+    
+    position: absolute;
+    top: 15px;
+    left: 15px;
 `

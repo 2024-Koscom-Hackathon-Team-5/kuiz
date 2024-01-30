@@ -4,10 +4,10 @@
 
 .app {
     background-color: #F4F1ED;
-    width: 500px;
+    width: 520px;
     height: 500px;
     border-radius: 0px;
-    /* padding: 70px; */
+    padding: 70px; 
     border: solid 1px #000000;
 
     margin-left: 160px;
@@ -16,6 +16,7 @@
 
     justify-content: center;
     align-items: center;  
+    
   }
 
   .wrapper_right {

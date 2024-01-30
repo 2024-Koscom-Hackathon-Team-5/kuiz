@@ -15,8 +15,12 @@ import axios from "axios";
 const MainPage = ({apiUrl}) => {
   const navigate = useNavigate();
   
-  const updateTags = () => {
-    
+  const updateTags = (gtags) => {
+    const id='A'+gtags;
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const goToQuiz = (searchName) => {
@@ -24,6 +28,7 @@ const MainPage = ({apiUrl}) => {
     setCookie('search_name', searchName);
     navigate("/quizpage");
   };
+
 
   const [keywordList, setKeywordList] = useState([{
             "keyword": {
@@ -377,7 +382,7 @@ const MainPage = ({apiUrl}) => {
             if (response) {
                 //renderFunction
                 console.log(keywordList);
-                console.log(response.data.keyword_list);
+                console.log('result : '+response.data.keyword_list);
                 if(response.data.keyword_list.length > 0) 
                     setKeywordList(response.data.keyword_list);
             }
@@ -413,7 +418,7 @@ const MainPage = ({apiUrl}) => {
                         <div className="card">
                             <img src="imgs/img_main2.png" className="card-img-top" alt="firstcard"></img>
                             <div className="card-body">
-                                <p className="card-text">자산 규모 5,000만원 이상인<br/>사람이 가장 궁금해 하는 상품</p>
+                                <p className="card-text">자산 5천만원 대 자산가가<br/>가장 궁금해하는 상품</p>
                             </div>
                         </div>
                 </div>
@@ -426,7 +431,10 @@ const MainPage = ({apiUrl}) => {
             <LastView>
               <Tags className="flex-container">
                 {keywordList.map((item) => (
-                    <Keyword id={item.keyword.keywordId} text={item.keyword.keyword_name} updateTags={updateTags} />
+                    <Keyword id={item.keyword.keywordId} 
+                             text={item.keyword.kor_name} 
+                             updateTags={updateTags} 
+                             />
                 ))}
               </Tags>
             </LastView>
@@ -435,7 +443,7 @@ const MainPage = ({apiUrl}) => {
 
                 {keywordList.map((item) => (
                     <div class="container_list">
-                        <div class="title_list">나의 {item.keyword.kor_name}</div>
+                        <div class="title_list" id={'A'+item.keyword.kor_name}>나의 {item.keyword.kor_name}</div>
                         <div class="buttons_list">
                             {item.productDTOList.map((products) => (
                                 <>
