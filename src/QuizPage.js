@@ -150,11 +150,12 @@ export default function QuizPage({ apiUrl }) {
     useEffect(() => {
         const name = getCookie('search_name');
         setSearchName(name);
+        console.log('name : '+name);
         console.log(searchName);
 
         //Access-Control-Allow-Origin: *
         axios.get(`${apiUrl}api/kuiz/`,
-            { params: { keyword: searchName } })
+            { params: { keyword: name } })
             .then(function (response) {
                 // response  
 
@@ -162,7 +163,7 @@ export default function QuizPage({ apiUrl }) {
                     //renderFunction
                     console.log(quizlist);
                     console.log(response.data.quiz_list);
-                   setQuizList(response.data.quiz_list);
+                    setQuizList(response.data.quiz_list);
                     
                     //setLists(response.data)
                 }
@@ -177,15 +178,17 @@ export default function QuizPage({ apiUrl }) {
             });
     }, []);
 
-    const handleAnswerOptionClick = (isCorrect, num, id) => {
+    const handleAnswerOptionClick = (e, isCorrect, num, id) => {
+ //       e.classList.add('correct');
+        
         setClickedAnswer(num);
         setShowAnser(true);
         // setScore(score + 1);
         if (isCorrect) {
             setScore(score + 1);
-            document.getElementById('answers').classList.add('correct');
+  //          e.target.classList.add('correct');
           } else {
-            document.getElementById('answers').classList.add('incorrect');
+  //          e.target.classList.add('incorrect');
           }
     };
     const navigate = useNavigate();
@@ -226,7 +229,7 @@ export default function QuizPage({ apiUrl }) {
                         <div className='score-section'>
                             ELS 3단계 <br></br>퀴즈 결과는
                         </div>
-                        <p className='real_score'>{100-score*10}점</p>
+                        <p className='real_score'>{70+score*10}점</p>
                     </>
                 ) : (
                     <>
@@ -238,11 +241,21 @@ export default function QuizPage({ apiUrl }) {
                         </div>
                         <div className='answer-section'>
                             {quizlist[currentQuestion].choices.map((choices) => (
-                                <>
-                                 {choices.isAnswer? 
-                                 <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>:
-                                 <button id='answers' onClick={() => handleAnswerOptionClick(choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>}
-                                </>
+                                <>{showAnswer?
+                                    <>
+                                        {choices.isAnswer? 
+                                            <button id='answers' className='correct' onClick={(e) => handleAnswerOptionClick(e, choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>:
+                                            <button id='answers' className='incorrect' onClick={(e) => handleAnswerOptionClick(e, choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>
+                                        }
+                                    </>
+                                    :
+                                    <>
+                                        {choices.isAnswer? 
+                                            <button id='answers' onClick={(e) => handleAnswerOptionClick(e, choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>:
+                                            <button id='answers' onClick={(e) => handleAnswerOptionClick(e, choices.isAnswer, choices.choice_num)}>{choices.choice_num + ' ' + choices.choice}</button>
+                                        }
+                                    </>
+                                }</>
                             ))}
                         </div>
 

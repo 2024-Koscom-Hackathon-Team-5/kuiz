@@ -1,8 +1,8 @@
-.wrapper_app {
+.wrapper_app_product {
   display: flex;
 }
 
-.app {
+.app_product {
    background-color: #F4F1ED;
    width: 100%;
    min-height: 400px;
@@ -64,12 +64,17 @@
    width: 100%;
    height: fit-content;
  }
- .product-section {
+ .product-section_product {
   width: 100%;
   color: #523E2A;
   font-size: 30px;
   display: flex;
   flex-wrap: wrap; /* 추가된 부분: 버튼이 창의 가로 길이를 넘어갈 경우 줄 바꿈 처리 */
+}
+
+.title_product {
+  font-size: 30px;
+  color: #000000;
 }
 
 #product {

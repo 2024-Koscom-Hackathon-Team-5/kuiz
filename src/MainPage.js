@@ -10,7 +10,9 @@ import Keyword from './Components/Keyword';
 import ProductBtn from './Components/ProductBtn';
 import { setCookie, getCookie } from './Etc/Cookies';
 
-const MainPage = () => {
+import axios from "axios";
+
+const MainPage = ({apiUrl}) => {
   const navigate = useNavigate();
   
   const updateTags = () => {
@@ -27,7 +29,7 @@ const MainPage = () => {
             "keyword": {
                 "keywordId": 1,
                 "keyword_name": "ELS",
-                "kor_name": "ELS",
+                "kor_name": "ELS > ",
                 "relavant_product": "원금 보장 상품",
                 "recommend_phrase": "확.실.한 원금보장상품을 원한다면?",
                 "quiz_cnt": 3,
@@ -363,21 +365,21 @@ const MainPage = () => {
 );
 
   useEffect(() => {
-   /*
+    console.log('mainPage');
+
 
     //Access-Control-Allow-Origin: *
-    axios.get(`${apiUrl}api/kuiz/`,
-        { params: { keyword: searchName } })
+    axios.get(`${apiUrl}api/ownership/`,
+        { params: { student_id: 1 } })
         .then(function (response) {
             // response  
 
             if (response) {
                 //renderFunction
-                console.log(quizlist);
-                console.log(response.data.quiz_list);
-               setQuizList(response.data.quiz_list);
-                
-                //setLists(response.data)
+                console.log(keywordList);
+                console.log(response.data.keyword_list);
+                if(response.data.keyword_list.length > 0) 
+                    setKeywordList(response.data.keyword_list);
             }
             else {
                 //검색 결과가 없습니다.
@@ -388,7 +390,7 @@ const MainPage = () => {
         }).then(function () {
             // 항상 실행
         });
-        */
+        
 }, []);
 
     return (
@@ -418,7 +420,7 @@ const MainPage = () => {
             </div>
 
             <div className="container">
-                <Inform text={"홍길동 님의 마이데이터를 기반으로 분석한 추천 퀴즈입니다."} />
+                <Inform text={"장동훈 님의 마이데이터를 기반으로 분석한 추천 퀴즈입니다."} />
             </div>
 
             <LastView>
@@ -433,37 +435,21 @@ const MainPage = () => {
 
                 {keywordList.map((item) => (
                     <div class="container_list">
-                        <div class="title_list">나의 적금</div>
+                        <div class="title_list">나의 {item.keyword.kor_name}</div>
                         <div class="buttons_list">
-                            <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                            <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                            <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
+                            {item.productDTOList.map((products) => (
+                                <>
+                                    {products.interest_min?
+                                     <ProductBtn text={products.product_name} subtext1={'가입 '+products.firm} subtext2={'상세 정보 '+products.interest_min+' ~ '+products.interest_max+' ('+products.period+'개월)'}></ProductBtn>:
+                                     <ProductBtn text={products.product_name} subtext1={'가입 '+products.firm} subtext2={'상세 정보 '+products.period+'개월'}></ProductBtn>
+                                    }
+                                </>
+                            ))}
                         </div>
-                        <button class="quiz-button_list" onClick={() => goToQuiz('ELS')}>{'적금 3단계 퀴즈 풀기 >'}</button>
+                        <button class="quiz-button_list" onClick={() => goToQuiz(item.keyword.keyword_name)}>{item.keyword.kor_name+' 3단계 퀴즈 풀기 >'}</button>
                     </div>
                 ))}
-
-                <div class="container_list">
-                    <div class="title_list">나의 적금</div>
-                    <div class="buttons_list">
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                    </div>
-                    <button class="quiz-button_list" onClick={() => goToQuiz('ELS')}>{'적금 3단계 퀴즈 풀기 >'}</button>
-                </div>
-
-                <div class="container_list">
-                    <div class="title_list">나의 적금</div>
-                    <div class="buttons_list">
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                        <ProductBtn text="KB국민행복적금" subtext1="가입 KB국민은행" subtext2="금리 기본 3.75% (12개월)"></ProductBtn>
-                    </div>
-                    <button class="quiz-button_list" onClick={goToQuiz('ETF')}>{'적금 3단계 퀴즈 풀기 >'}</button>
-                </div>
             </div>
-            
             <p> </p>
         </div>
     );

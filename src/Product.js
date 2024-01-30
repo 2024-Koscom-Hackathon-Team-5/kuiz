@@ -100,21 +100,21 @@ export default function Product() {
 		}
 	};
 	return (
-            <div className='wrapper_app'>
-                <div className='app'>
+            <div className='wrapper_app_product'>
+                <div className='app_product'>
                     
                     <>
-                        <div className='question-section'>
+                        <div className='question-section_product'>
                             {/* <div className='question-count'>
                                 <span>Question {currentQuestion + 1}</span>/{quiz_list.length}
                             </div> */}
-                            <span>적금 관련 상품</span>
+                            <span className="title_product">적금 관련 상품</span>
                             {/* <div className='question-text'>{quiz_list[currentQuestion].quiz_name}</div> */}
                         </div>
                         <br></br>
                         <br></br>
                         
-                        <div className='prouct-section'>
+                        <div className='prouct-section_product'>
                             <button id='product'>
                                 <b>KB국민행복적금</b>
                                 <br></br>
